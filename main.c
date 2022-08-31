@@ -9,14 +9,32 @@
 int	main (int argc, char **argv)
 {
 	t_list	*a;
+	int		*tab;
+	int	i;
+	int j;
+	int size;
 
-	a = NULL;
+	i = 1;
+	j = 1;
 	if (argc < 2)
 		return 0;
-	a = ft_list_init(&argv[1]);
+	while (i < argc)
+		i++;
+	size = i - 1;
+	tab = malloc(size*sizeof(int));
+	if (!tab)
+		return 0;
+	while (j <= size)// copy to tab
+	{
+		tab[j] = ft_atoi(argv[j]);
+		//printf("%d\n", tab[j]);
+		j++;
+	}
+	a = NULL;
+	a = ft_list_init(tab);
 	while (a != NULL)
 	{
-		printf("%s -> ", (char *)(a->content));
+		printf("%d -> ", (a->content));
 		if (a->next == NULL)
 			break;
 		a = a->next;
@@ -28,22 +46,3 @@ int	main (int argc, char **argv)
 }
 
 
-	/*
-	int	i;
-	int j;
-	int size;
-	int	tab[10];
-
-	i = 1;
-	j = 1;
-	while (i < argc)
-		i++;
-	size = i - 1;
-	//printf("%d\n", size);
-	while (j <= size)// copy to tab
-		{
-			tab[j] = atoi(argv[j]);
-			printf("%d\n", tab[j]);
-			j++;
-		}
-		*/

@@ -1,21 +1,21 @@
 #include "push_swap.h"
 
-t_list *ft_lstnew(void *content)
+t_list *ft_lstnew(int value)
 {
-	t_list *element;
+	t_list *newElement;
 	
-	element = malloc(sizeof(*element)); //equivaut a (sizeof(t_list)));
+	newElement = malloc(sizeof(*newElement)); //equivaut a (sizeof(t_list)));
 	
-	if (element == NULL)
+	if (newElement == NULL)
 		return NULL;
 		
-	element->content = content;
-	element->next = NULL;
+	newElement->content = value;
+	newElement->next = NULL;
 
-	return (element);
+	return (newElement);
 }
 
-t_list *ft_lstlast(t_list *lst)
+t_list *ft_lstlast(t_list *lst) //renvoie le dernier element de la liste
 {
 	if (lst == NULL)
 		return NULL;
@@ -24,7 +24,7 @@ t_list *ft_lstlast(t_list *lst)
 	return lst;
 }
 
-void ft_lstadd_back(t_list **lst, t_list *new)
+void ft_lstadd_back(t_list **lst, t_list *new) //ajoute element 'new' a la fin de la liste
 {
 	t_list	*last;
 	if (lst == NULL || new == NULL) // si les pointeurs ne pointent sur rien
@@ -38,16 +38,21 @@ void ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 }
 
-t_list	*ft_list_init(char **args)
+t_list	*ft_list_init(int *args)
 {
 	t_list	*a;
 	int		i;
 
 	a = NULL;
-	i = 0;
+	i = 1;
+	printf("%d\n", args[i]);
 	a = ft_lstnew(args[i++]);
-	while (args[i] != NULL)
+	printf("%d\n", args[i]);
+	while (args[i])
+	{
 		ft_lstadd_back(&a, ft_lstnew(args[i++]));
+		printf("%d\n", args[i]);
+	}
 	return (a);
 }
 
