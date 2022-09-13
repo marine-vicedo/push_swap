@@ -22,7 +22,7 @@ void    stack_add_back(t_stack **head, int value)
     }
 }
 
-int	stack_size(t_stack *a)
+int	ft_stack_size(t_stack *a)
 {
 	size_t	size;
 
@@ -45,3 +45,27 @@ void print_stack(t_stack *a)
     }
     printf("NULL \n");
 }
+
+void ft_clearstack(t_stack **head)
+{
+	t_stack	*temp;
+	while (*head)
+	{
+		temp = (*head)->next;
+		free(*head);
+		*head = temp;
+	}
+
+}
+
+/*void    push_stack(t_stack **head, int value)
+{
+    t_stack *newnode;
+
+    newnode = malloc(sizeof(newnode));
+    if (newnode == NULL)
+        exit(EXIT_FAILURE);
+    newnode->value = value;
+    newnode->next = *head;
+    *head = newnode;
+}*/

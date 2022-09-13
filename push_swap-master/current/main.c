@@ -1,55 +1,21 @@
 #include "push_swap.h"
 
-int	check_integers(char *str)
+void	push_swap(t_stack *a, int stack_size)
 {
-	int i;
-	i = 1;
-
-	while (str[i] != '\0')
-	{
-		if (ft_isdigit(str[i]) == 1)
-		{
-			printf("%c ", str[i]);
-			i++;
-		}
-		else
-		{
-			return (0);
-		}
-	}
-	return (1);
-}
-
-void	swap_a(t_stack *a)
-{
-	t_stack	*temp;
-
-	temp = a;
-
-	if (temp != NULL && temp->next != NULL)
-		swap(&temp->value, &temp->next->value);
-
-}
-
-void	push_swap(t_stack *a, int size)
-{
-	if (size == 2)
+	if (ft_is_sorted(a) == 1)
+		return;
+	else if (stack_size == 2)
 	{
 		swap_a(a);
+		printf("sa \n");
 	}
 }
 
-int	main (int argc, char **argv)
+void check_input(char **argv)
 {
-    t_stack    *a;
 	int	i;
-	int n;
-	int size;
-
-    a = NULL;
+	
 	i = 1;
-	if (argc == 1)
-		return 0;
 	//printf("%c", *argv[2]);
 	//printf("%s", argv[0]);
 	while (argv[i])
@@ -60,8 +26,18 @@ int	main (int argc, char **argv)
 			i++;
 		}
 		else
-			printf("Error");
+		{
+			printf("Error\n");
+			break;
+		}
 	}
+}
+
+t_stack	*fill_stack_args(int argc, char **argv, t_stack *a)
+{
+	int	n;
+	int	i;
+
 	i = 1;
 	while (i < argc)
 	{
@@ -69,12 +45,23 @@ int	main (int argc, char **argv)
 		stack_add_back(&a, n);
 		i++;
 	}
-	size = stack_size(a);
-	printf("%d\n", size);
-	printf("La liste avant swap \n");
+	return (a);
+}
+
+int	main (int argc, char **argv)
+{
+    t_stack *a;
+	//t_stack	*b;
+	int stack_size;
+
+    a = NULL;
+	//b = NULL;
+	if (argc == 1)
+		return 0;
+	check_input(argv);
+	a = fill_stack_args(argc, argv, a);
+	stack_size = ft_stack_size(a);
+	push_swap(a, stack_size);
 	print_stack(a);
-	//printf("%d\n %d\n", a->value, (a->next)->value);
-	printf("La liste apres swap \n");
-	push_swap(a, size);
-	print_stack(a);
+	ft_clearstack(&a);
 }
