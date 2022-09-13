@@ -20,46 +20,22 @@ int	check_integers(char *str)
 	return (1);
 }
 
-void	swap(t_stack *node_a, t_stack *node_b)
+void	swap_a(t_stack *a)
 {
-	t_stack tmp;
-	
-	tmp = *node_a;
-	*node_a = *node_b;
-	*node_b = tmp;
+	t_stack	*temp;
+
+	temp = a;
+
+	if (temp != NULL && temp->next != NULL)
+		swap(&temp->value, &temp->next->value);
+
 }
 
-void	swap_a(t_stack **head, int x, int y)
-{
-	t_stack	**temp_a;
-	t_stack	**temp_b;
-
-	if (x == y)
-		return;
-	temp_a = NULL;
-	temp_b = NULL;
-
-	while (head)
-	{
-		if ((*head)->value == x)
-			temp_a = head;
-		else if ((*head)->value == y)
-			temp_b = head;
-		head = &((*head)->next);
-	}
-
-	if (temp_a && temp_b)
-	{
-		swap(*temp_a, *temp_b);
-		swap((*temp_a)->next, (*temp_b)->next);
-	}
-}
-
-void	push_swap(t_stack **a, int size)
+void	push_swap(t_stack *a, int size)
 {
 	if (size == 2)
 	{
-		swap_a(a, 1, 2);
+		swap_a(a);
 	}
 }
 
@@ -97,7 +73,8 @@ int	main (int argc, char **argv)
 	printf("%d\n", size);
 	printf("La liste avant swap \n");
 	print_stack(a);
+	//printf("%d\n %d\n", a->value, (a->next)->value);
 	printf("La liste apres swap \n");
-	push_swap(&a, size);
+	push_swap(a, size);
 	print_stack(a);
 }

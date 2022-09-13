@@ -16,8 +16,8 @@ int	ft_atoi(const char *str);
 int	ft_isdigit(int c);
 int	check_integers(char *str);
 int	stack_size(t_stack *a);
-void    swap(t_stack *node_a, t_stack *node_b);
-void	swap_a(t_stack **head, int x, int y);
-void	push_swap(t_stack **a, int size);
+void    swap(int *a, int *b);
+void	swap_a(t_stack *a);
+void	push_swap(t_stack *a, int size);
 
 #endif

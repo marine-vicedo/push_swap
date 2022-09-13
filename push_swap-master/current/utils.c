@@ -1,5 +1,14 @@
 #include "push_swap.h"
 
+void	swap(int *a, int *b)
+{
+	int temp;
+	
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
 int	ft_isdigit(int c)
 {	
 	if (c >= '0' && c <= '9')
