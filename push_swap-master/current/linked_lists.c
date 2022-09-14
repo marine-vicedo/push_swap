@@ -22,26 +22,26 @@ void    stack_add_back(t_stack **head, int value)
     }
 }
 
-int	ft_stack_size(t_stack *a)
+int	ft_stack_size(t_stack *stack) //libft
 {
 	size_t	size;
 
 	size = 0;
-	while (a != NULL)
+	while (stack != NULL)
 	{
-	    a = a->next;
+	    stack = stack->next;
 		size++;
 	}
 	return (size);
 }
 
 
-void print_stack(t_stack *a)
+void print_stack(t_stack *stack)
 {
-    while (a != NULL)
+    while (stack != NULL)
     {
-        printf("%d -> ", a->value);
-        a = a->next;
+        printf("%d -> ", stack->value);
+        stack = stack->next;
     }
     printf("NULL \n");
 }
@@ -55,17 +55,13 @@ void ft_clearstack(t_stack **head)
 		free(*head);
 		*head = temp;
 	}
-
 }
 
-/*void    push_stack(t_stack **head, int value)
+t_stack	*ft_stack_last(t_list *stack) //libft
 {
-    t_stack *newnode;
-
-    newnode = malloc(sizeof(newnode));
-    if (newnode == NULL)
-        exit(EXIT_FAILURE);
-    newnode->value = value;
-    newnode->next = *head;
-    *head = newnode;
-}*/
+	if (stack == NULL)
+		return (NULL);
+	while (stack->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
