@@ -6,26 +6,29 @@ void	push_swap(t_stack *a, t_stack *b, int stack_size)
 		return;
 	else if (stack_size == 2)
 	{
-		swap_a(a);
+		swap_nodes(a);
 		printf("sa \n");
 	}
 	else if (stack_size > 2)
 	{
 		push_b(&a, &b);
+		push_b(&a, &b);
 		printf("pb \n");
 		print_stack(a);
 		print_stack(b);
-		reverse_rotate_a(&a);
-		printf("rra \n");
+		rotate(&a);
+		reverse_rotate(&a);
+		printf("ra \n");
 		print_stack(a);
+		print_stack(b);
 	}
 }
 
-void check_input(char **argv)
+int check_input(char **argv)
 {
 	int	i;
 	
-	i = 1;
+	i = 0;
 	//printf("%c", *argv[2]);
 	//printf("%s", argv[0]);
 	while (argv[i])
@@ -41,6 +44,7 @@ void check_input(char **argv)
 			break;
 		}
 	}
+	return (1);
 }
 
 t_stack	*fill_stack_args(int argc, char **argv, t_stack *a)
@@ -68,14 +72,13 @@ int	main (int argc, char **argv)
 	b = NULL;
 	if (argc == 1)
 		return 0;
-	check_input(argv);
-	a = fill_stack_args(argc, argv, a);
-	stack_size = ft_stack_size(a);
-	push_swap(a, b, stack_size);
-	printf("stack a :");
-	print_stack(a);
-	printf("stack b :");
-	print_stack(b);
-	ft_clearstack(&a);
-	ft_clearstack(&b);
+	if (check_input(argv) == 1)
+	{
+		a = fill_stack_args(argc, argv, a);
+		stack_size = ft_stack_size(a);
+		push_swap(a, b, stack_size);
+		ft_clearstack(&a);
+		ft_clearstack(&b);
+	}
+	return 0;
 }

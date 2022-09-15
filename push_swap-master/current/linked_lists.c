@@ -38,10 +38,13 @@ int	ft_stack_size(t_stack *stack) //libft
 
 void print_stack(t_stack *stack)
 {
-    while (stack != NULL)
+    t_stack *temp;
+
+    temp = stack;
+    while (temp != NULL)
     {
-        printf("%d -> ", stack->value);
-        stack = stack->next;
+        printf("%d -> ", temp->value);
+        temp = temp->next;
     }
     printf("NULL \n");
 }
@@ -55,13 +58,4 @@ void ft_clearstack(t_stack **head)
 		free(*head);
 		*head = temp;
 	}
-}
-
-t_stack	*ft_stack_last(t_list *stack) //libft
-{
-	if (stack == NULL)
-		return (NULL);
-	while (stack->next != NULL)
-		stack = stack->next;
-	return (stack);
 }

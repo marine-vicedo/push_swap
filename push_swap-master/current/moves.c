@@ -1,31 +1,22 @@
 #include "push_swap.h"
 
 /* intervertit les 2 premiers elements au sommet de la pile a */
-void	swap_a(t_stack *a)
+void	swap_nodes(t_stack *stack)
 {
 	t_stack	*temp;
 
-	temp = a;
+	temp = stack;
 
 	if (temp != NULL && temp->next != NULL)
 		swap(&temp->value, &temp->next->value);
 
 }
 
-/*void	swap_b(t_stack *b)
+
+/*void	swap_ss(t_stack *a, t_stack *b)
 {
-	t_stack *temp;
-
-	temp = b;
-
-	if (temp != NULL && temp->next != NULL)
-		swap(&temp->value, &temp->next->value);
-}
-
-void	swap_ss(t_stack *a, t_stack *b)
-{
-	swap_a(a);
-	swap_b(b));
+	swap(a);
+	swap(b);
 }
 
 void push_a(t_stack **b, t_stack **a)
@@ -48,16 +39,6 @@ void push_a(t_stack **b, t_stack **a)
 
 void push_b(t_stack **a, t_stack **b)
 {
-	/*t_stack *temp;
-
-	if (*a != NULL)
-	{
-		temp = (*a)->next;
-		(*a)->next = *b;
-		*b = *a;
-		*a = temp;
-	}*/
-
 	t_stack *temp;
 
 	if (*a != NULL)
@@ -67,20 +48,45 @@ void push_b(t_stack **a, t_stack **b)
 		temp->next = *b;
 		*b = temp;
 	}
+}
+
+/* decale une position vers le haut tous les elements de la pile a. Le premier element devient le dernier*/
+void rotate(t_stack **head)
+{
+	t_stack	*first;
+	t_stack *last;
+	
+	first = *head;//fixe
+	last = *head;
+	if (*head == NULL || (*head)->next == NULL)
+		return;
+	while (last->next != NULL)
+	{
+		last = last->next;
+
+	}
+	last->next = first;//pointeur first sur le dernier elememt // circulaire liste
+	*head = first->next; // debut de liste au 2nd element
+	first->next = NULL;
 
 }
 
+
 /* decale une position vers le bas tous les elements de la pile a. Le dernier element devient le premier*/
-void reverse_rotate_a(t_stack **a)
+void reverse_rotate(t_stack **head)
 {
+	t_stack	*first;
+	t_stack *last;
 
-	/*t_stack *temp;
-
-	temp = *a;
-	while (temp != NULL && temp->next != NULL)
+	first = *head; 
+	last = *head;
+	if (*head == NULL || (*head)->next == NULL)
+		return;
+	while (last->next->next != NULL)
 	{
-		temp = (temp)->next;//on avance temp jusqu'au dernier element
+		last = last->next;
 	}
-	temp->next = *a;
-	(*a)->next = *a;*/
+	last->next->next = first; //transforme en liste circulaire
+	*head = last->next; //debut de la liste au dernier noeud	
+	last->next = NULL;//casse la chaine
 }
