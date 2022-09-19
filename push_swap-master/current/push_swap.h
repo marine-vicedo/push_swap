@@ -16,7 +16,6 @@ void    print_stack(t_stack *stack);
 void    ft_clearstack(t_stack **head);
 int	    ft_atoi(const char *str);
 int	    ft_isdigit(int c);
-int	    check_integers(char *str);
 int	    ft_stack_size(t_stack *stack);
 void    swap(int *a, int *b);
 void	swap_nodes(t_stack *stack);

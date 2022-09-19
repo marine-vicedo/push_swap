@@ -24,29 +24,6 @@ void	push_swap(t_stack *a, t_stack *b, int stack_size)
 	}
 }
 
-int check_input(char **argv)
-{
-	int	i;
-	
-	i = 0;
-	//printf("%c", *argv[2]);
-	//printf("%s", argv[0]);
-	while (argv[i])
-	{
-		if (check_integers(argv[i]) == 1)
-		{
-			//printf("%s", argv[i]);
-			i++;
-		}
-		else
-		{
-			printf("Error\n");
-			break;
-		}
-	}
-	return (1);
-}
-
 t_stack	*fill_stack_args(int argc, char **argv, t_stack *a)
 {
 	int	n;
@@ -72,11 +49,12 @@ int	main (int argc, char **argv)
 	b = NULL;
 	if (argc == 1)
 		return 0;
-	if (check_input(argv) == 1)
+	if (check_input(argv))
 	{
 		a = fill_stack_args(argc, argv, a);
 		stack_size = ft_stack_size(a);
 		push_swap(a, b, stack_size);
+		print_stack(a);
 		ft_clearstack(&a);
 		ft_clearstack(&b);
 	}
