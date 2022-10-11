@@ -6,7 +6,7 @@
 /*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:44:32 by mvicedo           #+#    #+#             */
-/*   Updated: 2022/10/10 16:51:18 by mvicedo          ###   ########.fr       */
+/*   Updated: 2022/10/11 19:05:18 by mvicedo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,5 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);
-	free_all(a, b, moves, str);
+	free_all(&a, &b, moves);
 }

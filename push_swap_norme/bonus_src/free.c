@@ -6,7 +6,7 @@
 /*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:47:28 by mvicedo           #+#    #+#             */
-/*   Updated: 2022/10/10 19:15:55 by mvicedo          ###   ########.fr       */
+/*   Updated: 2022/10/11 19:07:43 by mvicedo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,16 @@ void	free_tab(char **tab)
 	free(tab);
 }
 
-void	free_all(t_stack *a, t_stack *b, char **moves, char *str)
+void	error_instruction(t_stack **a, t_stack **b, char **moves)
+{
+	free_all(a, b, moves);
+	ft_putstr_fd("Error\n", 2);
+	exit (0);
+}
+
+void	free_all(t_stack **a, t_stack **b, char **moves)
 {	
-	free (str);
 	free_tab(moves);
-	free_stack(&a);
-	free_stack(&b);
+	free_stack(a);
+	free_stack(b);
 }

@@ -6,7 +6,7 @@
 /*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:05:13 by mvicedo           #+#    #+#             */
-/*   Updated: 2022/10/11 12:47:02 by mvicedo          ###   ########.fr       */
+/*   Updated: 2022/10/11 19:08:02 by mvicedo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <limits.h>
 # include <stddef.h>
 # include <unistd.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 typedef struct stack
 {
@@ -67,11 +70,13 @@ char			*read_instructions(int fd);
 char			*ft_strjoin(char *stash, char *buffer);
 char			**tab_instructions(char *str);
 void			sort_stack(char **moves, t_stack **a, t_stack **b);
-void			do_instructions(char *str, t_stack **a, t_stack **b);
+void			do_instructions(char *move, t_stack **a, t_stack **b,
+					char **moves);
 int				ft_strcmp(const char *s1, const char *s2);
 char			*ft_strdup(const char *s);
 char			**ft_split(char const *s, char sep);
 void			free_tab(char **tab);
-void			free_all(t_stack *a, t_stack *b, char **moves, char *str);
+void			free_all(t_stack **a, t_stack **b, char **moves);
+void			error_instruction(t_stack **a, t_stack **b, char **moves);
 
 #endif
