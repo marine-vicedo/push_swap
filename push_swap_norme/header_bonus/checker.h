@@ -6,7 +6,7 @@
 /*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:05:13 by mvicedo           #+#    #+#             */
-/*   Updated: 2022/10/10 17:09:44 by mvicedo          ###   ########.fr       */
+/*   Updated: 2022/10/11 12:47:02 by mvicedo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void			ft_putstr_fd(char *s, int fd);
 
 /* --------------------- checker ---------------------- */
 char			*read_instructions(int fd);
+char			*ft_strjoin(char *stash, char *buffer);
 char			**tab_instructions(char *str);
 void			sort_stack(char **moves, t_stack **a, t_stack **b);
 void			do_instructions(char *str, t_stack **a, t_stack **b);

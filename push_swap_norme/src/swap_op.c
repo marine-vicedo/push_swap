@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_op.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marinevicedo <marinevicedo@student.42.f    +#+  +:+       +#+        */
+/*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:18:01 by mvicedo           #+#    #+#             */
-/*   Updated: 2022/10/03 11:24:17 by marineviced      ###   ########.fr       */
+/*   Updated: 2022/10/11 15:20:38 by mvicedo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static void	swap(int *a, int *b)
 	*b = temp;
 }
 
-/* intervertit les 2 premiers elements au sommet de la pile a */
 static void	swap_nodes(t_stack **stack)
 {
 	t_stack	*temp;

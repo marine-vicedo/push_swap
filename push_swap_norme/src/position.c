@@ -6,7 +6,7 @@
 /*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 10:33:19 by mvicedo           #+#    #+#             */
-/*   Updated: 2022/10/10 16:25:17 by mvicedo          ###   ########.fr       */
+/*   Updated: 2022/10/11 15:03:38 by mvicedo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	define_target_stack_a(t_stack **a, int index_b, int index_target,
 	temp_a = *a;
 	while (temp_a != NULL)
 	{
-		if (temp_a->index > index_b && temp_a->index < index_target)
+		if (index_b < temp_a->index && temp_a->index < index_target)
 		{
 			index_target = temp_a->index;
 			target_pos_b = temp_a->pos;
