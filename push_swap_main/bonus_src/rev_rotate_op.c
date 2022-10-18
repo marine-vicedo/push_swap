@@ -6,7 +6,7 @@
 /*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 10:17:07 by mvicedo           #+#    #+#             */
-/*   Updated: 2022/10/06 18:31:13 by mvicedo          ###   ########.fr       */
+/*   Updated: 2022/10/10 16:42:09 by mvicedo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,4 @@ void	reverse_rotate_both(t_stack **a, t_stack **b)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	
 }

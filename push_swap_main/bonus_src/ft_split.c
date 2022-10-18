@@ -6,25 +6,11 @@
 /*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 12:10:13 by mvicedo           #+#    #+#             */
-/*   Updated: 2022/10/10 15:37:45 by mvicedo          ###   ########.fr       */
+/*   Updated: 2022/10/10 17:02:56 by mvicedo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
-/*static char *free_words(char *word)
-{
-	int	i;
-
-	i = 0;
-	while (word[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-	return (NULL);
-}*/
 
 static size_t	ft_countwords(char const *s, char sep)
 {

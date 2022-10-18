@@ -6,7 +6,7 @@
 /*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:18:01 by mvicedo           #+#    #+#             */
-/*   Updated: 2022/10/06 18:31:38 by mvicedo          ###   ########.fr       */
+/*   Updated: 2022/10/10 17:03:11 by mvicedo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static void	swap(int *a, int *b)
 	*b = temp;
 }
 
-/* intervertit les 2 premiers elements au sommet de la pile a */
 static void	swap_nodes(t_stack **stack)
 {
 	t_stack	*temp;

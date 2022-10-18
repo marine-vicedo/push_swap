@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/10 16:44:32 by mvicedo           #+#    #+#             */
+/*   Updated: 2022/10/11 19:05:18 by mvicedo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "checker.h"
 
 int	check_sort(t_stack **a)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = *a;
 	while (temp != NULL && temp->next != NULL)
@@ -33,19 +45,6 @@ t_stack	*init_stack_a(char **argv, t_stack *a)
 	return (a);
 }
 
-void free_tab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-}
-
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -71,9 +70,5 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);
-	free (str);
-	free_tab(moves);
-	//print_stack(a);
-	free_stack(&a);
-	free_stack(&b);	
+	free_all(&a, &b, moves);
 }

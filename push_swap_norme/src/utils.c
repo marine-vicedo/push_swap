@@ -6,7 +6,7 @@
 /*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:23:52 by mvicedo           #+#    #+#             */
-/*   Updated: 2022/10/10 16:33:28 by mvicedo          ###   ########.fr       */
+/*   Updated: 2022/10/18 11:36:59 by mvicedo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,6 @@ long int	ft_atoi(const char *str)
 	return (resultat * sign);
 }
 
-static void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
-
 void	ft_putstr_fd(char *s, int fd)
 {
 	unsigned int	i;
@@ -47,7 +42,7 @@ void	ft_putstr_fd(char *s, int fd)
 	i = 0;
 	while (s[i])
 	{
-		ft_putchar_fd(s[i], fd);
+		write(fd, &s[i], 1);
 		i++;
 	}
 }

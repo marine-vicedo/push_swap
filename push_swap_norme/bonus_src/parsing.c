@@ -6,7 +6,7 @@
 /*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:21:42 by mvicedo           #+#    #+#             */
-/*   Updated: 2022/10/11 19:08:41 by mvicedo          ###   ########.fr       */
+/*   Updated: 2022/10/18 11:23:07 by mvicedo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	exit_error(t_stack **a, t_stack **b)
 		free_stack(a);
 	if (b == NULL || *b != NULL)
 		free_stack(b);
-	ft_putstr_fd("Error\n", 2);
+	write(2, "Error\n", 6);
 	exit (0);
 }
 

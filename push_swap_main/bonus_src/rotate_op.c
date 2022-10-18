@@ -1,48 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   rotate_op.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 14:23:52 by mvicedo           #+#    #+#             */
-/*   Updated: 2022/10/18 11:36:28 by mvicedo          ###   ########.fr       */
+/*   Created: 2022/09/22 14:12:16 by mvicedo           #+#    #+#             */
+/*   Updated: 2022/10/10 16:44:04 by mvicedo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-long int	ft_atoi(const char *str)
+static void	rotate(t_stack **head)
 {
-	int			i;
-	long int	sign;
-	long int	resultat;
+	t_stack	*first;
+	t_stack	*last;
 
-	i = 0;
-	sign = 1;
-	resultat = 0;
-	while ((str[i] == '+' || str[i] == '-'))
+	first = *head;
+	last = *head;
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
+	while (last->next != NULL)
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		last = last->next;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		resultat = resultat * 10 + (str[i] - 48);
-		i++;
-	}
-	return (resultat * sign);
+	last->next = first;
+	*head = first->next;
+	first->next = NULL;
 }
 
-void	ft_putstr_fd(char *s, int fd)
+void	ra(t_stack **a)
 {
-	unsigned int	i;
+	rotate(a);
+}
 
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+void	rb(t_stack **b)
+{
+	rotate(b);
+}
+
+void	rotate_both(t_stack **a, t_stack **b)
+{
+	rotate(a);
+	rotate(b);
 }

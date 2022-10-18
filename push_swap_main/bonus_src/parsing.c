@@ -6,13 +6,13 @@
 /*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:21:42 by mvicedo           #+#    #+#             */
-/*   Updated: 2022/10/06 18:11:30 by mvicedo          ###   ########.fr       */
+/*   Updated: 2022/10/11 19:08:41 by mvicedo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int	check_for_numbers(const char *str) //ft_atoi adapte
+int	check_for_numbers(const char *str)
 {
 	int	i;
 
@@ -31,7 +31,6 @@ int	check_for_numbers(const char *str) //ft_atoi adapte
 	return (0);
 }
 
-/* O is correct, 1 there are duplicates */
 int	check_duplicates(t_stack *a)
 {
 	t_stack	*temp1;
@@ -62,7 +61,7 @@ void	exit_error(t_stack **a, t_stack **b)
 	exit (0);
 }
 
-int	check_input(char **argv)// 0 IS CORRECT INPUT ; 1 IS ERROR
+int	check_input(char **argv)
 {
 	int	i;
 

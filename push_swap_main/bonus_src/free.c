@@ -1,48 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_op.c                                        :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvicedo <mvicedo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 14:12:16 by mvicedo           #+#    #+#             */
-/*   Updated: 2022/10/06 18:31:02 by mvicedo          ###   ########.fr       */
+/*   Created: 2022/10/10 16:47:28 by mvicedo           #+#    #+#             */
+/*   Updated: 2022/10/11 19:07:43 by mvicedo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static void	rotate(t_stack **head)
+void	free_tab(char **tab)
 {
-	t_stack	*first;
-	t_stack	*last;
+	int	i;
 
-	first = *head;//fixe
-	last = *head;
-	if (*head == NULL || (*head)->next == NULL)
-		return ;
-	while (last->next != NULL)
+	i = 0;
+	while (tab[i])
 	{
-		last = last->next;
+		free(tab[i]);
+		i++;
 	}
-	last->next = first;
-	*head = first->next;
-	first->next = NULL;
+	free(tab);
 }
 
-void	ra(t_stack **a)
+void	error_instruction(t_stack **a, t_stack **b, char **moves)
 {
-	rotate(a);
+	free_all(a, b, moves);
+	ft_putstr_fd("Error\n", 2);
+	exit (0);
 }
 
-void	rb(t_stack **b)
-{
-	rotate(b);	
-}
-
-void	rotate_both(t_stack **a, t_stack **b)
-{
-	rotate(a);
-	rotate(b);
-	
+void	free_all(t_stack **a, t_stack **b, char **moves)
+{	
+	free_tab(moves);
+	free_stack(a);
+	free_stack(b);
 }
