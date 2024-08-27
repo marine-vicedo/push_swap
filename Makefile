@@ -69,6 +69,7 @@ $(NAME_BONUS): $(BONUS_OBJS)
 
 clean :
 	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -rf $(OBJ_DIR) $(BONUS_OBJ_DIR)
 
 fclean : clean
 	rm -f $(NAME) $(NAME_BONUS)
